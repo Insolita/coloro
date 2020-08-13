@@ -1,6 +1,8 @@
 Console Hex Color Highlighter
 ==================
 
+![Screen1](./img/cli1.png)
+
 ### Installation
 
 `pip3 install coloro --user`
@@ -22,8 +24,10 @@ Console Hex Color Highlighter
 
 ### Screens
 
-![Screen1](./img/cli1.png)
+
 
 ![Screen2](./img/cli2.png)
 
-![Screen3](./img/cli3.png)
+![Screen3](./img/cli4.png)
+
+![Screen4](./img/cli3.png)
