@@ -15,6 +15,8 @@ Console Hex Color Highlighter
 ### Usage Examples
 
   - `coloro 'some #fff text #c574dd with colors'` Highlight from arg
+  
+  - `coloro -n 'some ffccff text ef42f0 with colors'` Allow highlights for colors without '#' prefix
 
   - `coloro -c`  Highlight text from clipboard
 

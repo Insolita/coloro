@@ -21,8 +21,8 @@ def hex_to_rgb(value):
     return int(value[0:2], 16), int(value[2:4], 16), int(value[4:6], 16)
 
 
-def colorize(text):
-    pattern = re.compile(r'#(?:[0-9a-fA-F]{3}){1,2}')
+def colorize(text, skip_hash):
+    pattern = re.compile(r'(?:[0-9a-fA-F]{3}){2}') if skip_hash else re.compile(r'#(?:[0-9a-fA-F]{3}){1,2}')
     matches = set(re.findall(pattern, text))
     for color in matches:
         (r, g, b) = hex_to_rgb(color)
@@ -36,8 +36,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("text", type=str, nargs='?',
                         action="store", default=None, help="Text for colorize")
-    parser.add_argument("-c", '--clip', action="store_true",
-                        help="Process text from clipboard")
+    parser.add_argument("-c", '--clip', action="store_true", help="Process text from clipboard")
+    parser.add_argument("-n", '--nohash', action="store_true",default=False, help="Allow parse without hash")
     args = parser.parse_args()
     if args.clip:
         try:
@@ -57,7 +57,7 @@ def main():
         print('text not matched')
         exit(0)
 
-    colorize(text)
+    colorize(text, args.nohash)
     exit(0)
 
 
